@@ -1,0 +1,10 @@
+@use "@styles/variable.scss" as *;
+
+.btn {
+  padding: 6px 12px;
+  height: 48px;
+  background-color: $hover-background-color;
+  @include cornerStyles(0, 0, $element-corner-radius, $element-corner-radius);
+  cursor: pointer;
+  box-shadow: $frame-shadow;
+}

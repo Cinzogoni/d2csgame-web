@@ -1,0 +1,196 @@
+@use "@styles/variable.scss" as *;
+
+.wrapper {
+  width: 100%;
+  height: 576px;
+  margin: 24px 0;
+  display: flex;
+
+  .events {
+    flex: 2;
+    padding: 12px;
+    background-color: $frame-background-color;
+    border-radius: $frame-corner-radius;
+    box-shadow: $element-shadow;
+
+    .frame {
+      width: 100%;
+      height: 100%;
+      clip-path: $parent-corner-frame;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      .box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+
+        .events-img {
+          height: 100%;
+          width: 100%;
+          background-color: $element-background-color;
+          position: relative;
+
+          .events-banner {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            @include cornerStyles(
+              $frame-corner-radius,
+              0,
+              $frame-corner-radius,
+              0
+            );
+          }
+
+          .events-desc {
+            position: absolute;
+            width: 100%;
+            height: 70px;
+            bottom: 0;
+            background-color: $hover-background-color;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 36px;
+            border-top: $primary-separation;
+            @include cornerStyles(0, 0, $frame-corner-radius, 0);
+            overflow: hidden;
+
+            .event-title {
+              height: 27px;
+              font-size: 1.8rem;
+              color: $text-hover-color;
+              text-shadow: $element-shadow;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+          }
+
+          .events-published {
+            height: 27px;
+            font-size: 1.4rem;
+            color: $text-hover-color;
+            text-shadow: $element-shadow;
+          }
+        }
+      }
+    }
+  }
+
+  .slider {
+    position: absolute;
+    width: 100%;
+    bottom: 94px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .slide {
+      width: 50px;
+      height: 50px;
+      background-color: $frame-background-color;
+      border-radius: 999px;
+      box-shadow: $element-shadow;
+    }
+  }
+
+  .services {
+    flex: 1;
+    padding: 12px;
+    margin-left: 24px;
+    background-color: $frame-background-color;
+    border-radius: $frame-corner-radius;
+    box-shadow: $element-shadow;
+    display: flex;
+    flex-direction: column;
+
+    .services-title {
+      font-size: clamp(1.6rem, 1.2vw, 2.4rem);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .service {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 12px;
+
+      .item {
+        width: 100%;
+        height: 100%;
+        clip-path: $element-corner-frame;
+        @include cornerStyles($frame-corner-radius, 0, $frame-corner-radius, 0);
+        background-color: $element-background-color;
+        position: relative;
+
+        .service-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          @include cornerStyles(
+            $frame-corner-radius,
+            0,
+            $frame-corner-radius,
+            0
+          );
+        }
+
+        .service-desc {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 50px;
+          background-color: $hover-background-color;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          @include cornerStyles(0, 0, $frame-corner-radius, 0);
+
+          .service-name {
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            text-align: center;
+            color: $text-hover-color;
+            padding: 0 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    flex-direction: column;
+    height: 864px;
+
+    .services {
+      margin: 24px 0 0 0;
+
+      .service {
+        padding: 0;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        gap: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .wrapper {
+    height: 625px;
+  }
+}
+
+@media (max-width: 630px) {
+  .wrapper {
+    height: 558px;
+  }
+}

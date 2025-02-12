@@ -1,0 +1,75 @@
+@use "./variable.scss" as *;
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 380px;
+  position: relative;
+
+  .header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: $primary-shadow;
+    background-color: $frame-background-color;
+    border-bottom-left-radius: $frame-corner-radius;
+    border-bottom-right-radius: $frame-corner-radius;
+  }
+
+  .main {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      border-radius: 50px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $scrollbar-color;
+      border-radius: 50px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $frame-background-color;
+      border-radius: 50px;
+    }
+  }
+
+  .footer {
+    width: 100%;
+    height: 100px;
+    box-shadow: $primary-shadow;
+    background-color: $frame-background-color;
+    border-top-left-radius: $frame-corner-radius;
+    border-top-right-radius: $frame-corner-radius;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 630px) {
+  .container {
+    .footer {
+      height: 132px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    .header {
+      height: 108px;
+      flex-direction: column;
+      padding-bottom: 8px;
+    }
+  }
+}

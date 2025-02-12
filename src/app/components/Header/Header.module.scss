@@ -1,0 +1,51 @@
+@use "@styles/variable.scss" as *;
+
+.header-left {
+  width: 80%;
+  padding: 0 12px;
+  display: flex;
+
+  .logo {
+    width: 65px;
+    height: 65px;
+    border-radius: $frame-corner-radius;
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $frame-corner-radius;
+    }
+  }
+}
+
+.header-right {
+  width: 100%;
+  padding: 0 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .header-left {
+    height: 50px;
+    justify-content: center;
+
+    .logo {
+      width: 35px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+
+      .img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  .header-right {
+    height: 50px;
+    justify-content: center;
+  }
+}

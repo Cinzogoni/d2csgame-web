@@ -1,0 +1,183 @@
+@use "@styles/variable.scss" as *;
+
+.wrapper {
+  width: 100%;
+  height: 444px;
+  background-color: $frame-background-color;
+  border-radius: $frame-corner-radius;
+  padding: 12px 0;
+  margin-bottom: 24px;
+  box-shadow: $element-shadow;
+
+  .heading {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-bottom: 24px;
+
+    .title {
+      font-size: clamp(1.6rem, 1.5vw, 2.4rem);
+      font-weight: 700;
+    }
+
+    .view-all {
+      font-size: clamp(1.4rem, 1.5vw, 2rem);
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+  .frame {
+    width: 100%;
+    height: 330px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .slide-prev {
+      order: 1;
+      width: 79px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-next {
+      order: 3;
+      width: 79px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .newItems {
+      order: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      max-width: 1428px;
+      min-width: 255.5px;
+
+      .img-container {
+        width: 288px;
+        height: 360px;
+        clip-path: $element-corner-frame;
+        @include cornerStyles($frame-corner-radius, 0, $frame-corner-radius, 0);
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        overflow: hidden;
+
+        .note {
+          width: 130px;
+          height: 36px;
+          border-radius: $frame-corner-radius;
+          position: absolute;
+          top: 0;
+          left: 24px;
+          z-index: 1;
+          background-color: $note-background-color;
+          box-shadow: $note-shadow;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .desc {
+            font-size: 1.6rem;
+            color: $text-hover-color;
+            text-shadow: $note-shadow;
+          }
+        }
+
+        .img-box {
+          width: 100%;
+          height: 252px;
+          cursor: pointer;
+          @include cornerStyles($frame-corner-radius, 0, 0, 0);
+          overflow: hidden;
+
+          &:hover {
+            .img {
+              transform: scale(1.2);
+            }
+          }
+
+          .img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: $element-background-color;
+            @include cornerStyles($frame-corner-radius, 0, 0, 0);
+            transition: transform 0.25s ease;
+          }
+        }
+
+        .info {
+          width: 100%;
+          height: 90px;
+          padding: 0 3px;
+          background-color: $hover-background-color;
+          border-bottom-right-radius: $frame-corner-radius;
+          border: $primary-separation;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .name,
+          .hero,
+          .price {
+            font-size: 1.4rem;
+            text-align: center;
+            color: $text-hover-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1366px) {
+  .wrapper {
+    .frame {
+      .newItems {
+        .img-container {
+          width: 230px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    .frame {
+      .newItems {
+        .img-container {
+          width: 380px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    .frame {
+      .newItems {
+        .img-container {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

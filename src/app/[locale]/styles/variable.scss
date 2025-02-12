@@ -1,0 +1,80 @@
+$primary-light-mode-bg: #e8e8e8;
+$primary-background-color: #151b20;
+$primary-shadow: 0px -10px 30px #232323;
+
+$main-text-font: "Poppins", sans-serif;
+$primary-text-color: #34495e;
+$text-hover-color: #ffffffcc;
+
+$frame-background-color: #ffffffd9;
+$element-background-color: #5a62694d;
+$note-background-color: #ffa500;
+$hover-background-color: #2c2c35;
+
+$scrollbar-color: rgb(156, 156, 156);
+$scrollbar-hover: #777777;
+
+$parent-corner-frame: polygon(95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%, 0 0);
+$element-corner-frame: polygon(
+  0 0,
+  88% 0,
+  100% 12%,
+  100% 100%,
+  20% 100%,
+  0 80%
+);
+$frame-corner-radius: 12px;
+$element-corner-radius: 6px;
+
+$primary-separation: 0.5px solid #69696999;
+$frame-shadow: 0 0 5px #232323;
+$element-shadow: 0 0 2px #232323;
+$white-shadow: 0 0 5px #ffffff99;
+$note-shadow: 0 0 2px #ffffff99;
+
+@mixin cornerStyles($top-left, $top-right, $bottom-right, $bottom-left) {
+  border-top-left-radius: $top-left;
+  border-top-right-radius: $top-right;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Regular.ttf") format("ttf"),
+    url("/fonts/Poppins-Regular.ttf") format("ttf"),
+    url("/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Medium.ttf") format("ttf"),
+    url("/fonts/Poppins-Medium.ttf") format("ttf"),
+    url("/fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-SemiBold.ttf") format("ttf"),
+    url("/fonts/Poppins-SemiBold.ttf") format("ttf"),
+    url("/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-Bold.ttf") format("ttf"),
+    url("/fonts/Poppins-Bold.ttf") format("ttf"),
+    url("/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins-ExtraBold.ttf") format("ttf"),
+    url("/fonts/Poppins-ExtraBold.ttf") format("ttf"),
+    url("/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+}

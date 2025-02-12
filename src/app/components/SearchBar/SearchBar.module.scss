@@ -1,0 +1,39 @@
+@use "@styles/variable.scss" as *;
+
+.wrapper {
+  width: 100%;
+  max-width: 400px;
+  height: 65px;
+  margin-right: 12px;
+  border-radius: $frame-corner-radius;
+  box-shadow: $element-shadow;
+
+  .products {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+    background-color: $text-hover-color;
+    border-radius: $element-corner-radius;
+    box-shadow: $white-shadow;
+
+    .name,
+    .character,
+    .price {
+      color: $text-hover-color;
+      font: {
+        size: 1.4rem;
+        weight: 600;
+      }
+      color: $primary-text-color;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    max-width: 542px;
+    height: 50px;
+    margin-right: 12px;
+  }
+}

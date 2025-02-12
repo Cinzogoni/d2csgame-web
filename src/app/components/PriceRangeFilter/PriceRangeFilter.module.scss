@@ -1,0 +1,73 @@
+@use "@styles/variable.scss" as *;
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .price {
+    width: 80px;
+    font: {
+      size: 1.6rem;
+      weight: 600;
+    }
+  }
+
+  .price:nth-child(2) {
+    width: 80px;
+    order: 3;
+  }
+
+  .price-bar {
+    order: 2;
+    flex: 1;
+    margin: 0 6px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    .range-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 10px;
+      background-color: $element-background-color;
+      border-radius: 5px;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background-color: $hover-background-color;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .range-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: $hover-background-color;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .range-slider::-ms-thumb {
+      width: 20px;
+      height: 20px;
+      background: $hover-background-color;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .range-highlight {
+      width: 100%;
+      position: absolute;
+      height: 8px;
+      background-color: $hover-background-color;
+      z-index: 2;
+    }
+  }
+}

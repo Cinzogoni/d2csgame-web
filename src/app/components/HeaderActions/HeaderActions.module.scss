@@ -1,0 +1,57 @@
+@use "@styles/variable.scss" as *;
+
+.wrapper {
+  width: 100%;
+  max-width: 65px;
+  height: 65px;
+  margin-right: 12px;
+  border-radius: $frame-corner-radius;
+  box-shadow: $element-shadow;
+
+  .account {
+    width: 100%;
+    height: 65px;
+    border-radius: $frame-corner-radius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    .arrow-down {
+      width: 15px;
+      height: 15px;
+      border-left: 7.5px solid transparent;
+      border-right: 7.5px solid transparent;
+      border-top: 10px solid $primary-text-color;
+    }
+
+    .icon {
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    max-width: 50px;
+    height: 50px;
+
+    .account {
+      height: 50px;
+
+      .arrow-down {
+        width: 7px;
+        height: 10px;
+        border-top: 7px solid $primary-text-color;
+      }
+
+      .icon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}

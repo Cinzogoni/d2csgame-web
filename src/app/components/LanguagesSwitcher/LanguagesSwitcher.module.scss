@@ -1,0 +1,115 @@
+@use "@styles/variable.scss" as *;
+
+.wrapper {
+  width: 100%;
+  max-width: 35px;
+  height: 65px;
+  border-radius: $frame-corner-radius;
+  box-shadow: $element-shadow;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-background-color;
+
+    .arrow-down {
+      border-top: 10px solid $text-hover-color;
+    }
+  }
+
+  .arrow-down {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+    width: 15px;
+    height: 15px;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+    border-top: 10px solid $primary-text-color;
+    transition: all 0.1s ease-in-out;
+  }
+
+  .selected-flag {
+    position: absolute;
+    top: 25px;
+    left: 4px;
+
+    .flag-img {
+      width: 27px;
+      height: 27px;
+      object-fit: cover;
+      border-radius: 999px;
+      box-shadow: $element-shadow;
+      cursor: pointer;
+    }
+  }
+
+  .select {
+    position: absolute;
+    width: 100%;
+    top: 66px;
+    background-color: $hover-background-color;
+    border-radius: $frame-corner-radius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .option {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .opt-img {
+        width: 27px;
+        height: 27px;
+        object-fit: cover;
+        border-radius: 999px;
+        box-shadow: $element-shadow;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    height: 50px;
+
+    &:hover {
+      background-color: $hover-background-color;
+
+      .arrow-down {
+        border-top: 7px solid $frame-background-color;
+      }
+    }
+
+    .arrow-down {
+      left: 10px;
+      width: 7px;
+      height: 10px;
+      border-top: 7px solid $primary-text-color;
+    }
+
+    .selected-flag {
+      top: 20px;
+      left: 7px;
+      .flag-img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    .select {
+      top: 50px;
+      .option {
+        .opt-img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,180 @@
+@use "@styles/variable.scss" as *;
+
+.form-wrapper {
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .form-container {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $frame-background-color;
+    box-shadow: $frame-shadow;
+
+    .brand-name {
+      padding: 24px 72px 12px 72px;
+      margin-bottom: 48px;
+
+      font: {
+        size: 3.2rem;
+        weight: 600;
+      }
+    }
+
+    .switch-form {
+      padding: 12px 72px 12px 72px;
+      width: 100%;
+
+      .switch {
+        width: 100%;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: space-evenly;
+        .title {
+          width: 100%;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: $element-corner-radius;
+          font: {
+            size: 2.4rem;
+            weight: 600;
+          }
+          cursor: pointer;
+        }
+      }
+    }
+
+    .frame {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .input-form {
+          width: 100%;
+          height: 60px;
+          margin: 12px 0;
+          display: flex;
+          align-items: center;
+          background-color: $element-background-color;
+          border-radius: $element-corner-radius;
+          color: $primary-text-color;
+          box-shadow: $element-shadow;
+
+          .input {
+            width: 100%;
+            text-indent: 10px;
+            font: {
+              size: 1.6rem;
+              weight: 700;
+            }
+          }
+        }
+
+        .login-wrong,
+        .signup-wrong {
+          width: 100%;
+          height: 18px;
+          font: {
+            size: 1.2rem;
+            weight: 600;
+          }
+          color: red;
+        }
+      }
+
+      .password {
+        width: 100%;
+
+        .forgot-password {
+          font: {
+            size: 1.4rem;
+            weight: 600;
+          }
+          margin: 12px 0;
+          transition: text-decoration 0.15s ease;
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .steam {
+        width: 100%;
+        height: 48px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: $element-corner-radius;
+        box-shadow: $element-shadow;
+        transition: background-color 0.15s ease, color 0.15s ease;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $hover-background-color;
+
+          .login-steam {
+            color: $text-hover-color;
+          }
+        }
+        .icon {
+          width: 36px;
+          height: 36px;
+          margin: 12px;
+          object-fit: cover;
+          border-radius: 999px;
+          box-shadow: $white-shadow;
+        }
+
+        .login-steam {
+          font: {
+            size: 1.6rem;
+          }
+        }
+      }
+
+      .submit {
+        width: 160px;
+        height: 48px;
+        background-color: $element-background-color;
+        border-radius: $element-corner-radius;
+        box-shadow: $element-shadow;
+        transition: background-color 0.15s ease, color 0.15s ease;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $hover-background-color;
+
+          .login-submit {
+            color: $text-hover-color;
+          }
+        }
+
+        .login-submit {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}
