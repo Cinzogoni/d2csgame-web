@@ -23,9 +23,9 @@ const flagMapping: Record<Locale, string> = {
 function LanguagesSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedLocale, setSelectedLocale] = useState<Locale>("vi");
-  const locale = useLocale();
   const { heroName, name } = useParams();
 
   const heroNameString = typeof heroName === "string" ? heroName : "";

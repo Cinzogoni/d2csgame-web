@@ -8,6 +8,16 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale: `vi`,
   pathnames: {
+    "/": {
+      vi: "/trang-tru",
+      en: "/home",
+      ru: "home",
+    },
+    "/users/[userName]": {
+      vi: "/user/[userName]",
+      en: "/user/[userName]",
+      ru: "/user/[userName]",
+    },
     "/authentication": {
       vi: "/xac-thuc",
       en: "/authentication",
@@ -230,7 +240,7 @@ export const routing = defineRouting({
 
 const useNavigate = (
   pathname: string,
-  params: Record<string, string>
+  params: Record<string, string | undefined>
 ): string => {
   return pathname
     .split("/")

@@ -16,7 +16,12 @@ function HeaderActions() {
 
   return (
     <Link
-      href="/authentication"
+      //@ts-ignore
+      href={
+        currentUser?.userName
+          ? `/user/${currentUser.userName}`
+          : "/authentication"
+      }
       target="_blank"
       style={{ marginRight: "12px" }}
     >

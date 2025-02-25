@@ -5,10 +5,18 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import AutorenewIcon from "@mui/icons-material/Autorenew";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { Link, useRouter } from "src/i18n/routing";
+import { useLocale } from "next-intl";
 
 import apiUser from "src/api/fakeApi/apiUser";
+import { loginSuccess } from "src/app/redux-toolkit/apiUsersResources";
+import { useDispatch } from "react-redux";
+
 import { apiUsers } from "src/app/services/ProductService";
 
 type AuthFormType = {
@@ -18,19 +26,65 @@ type AuthFormType = {
 
 function AuthForm({ formType, setFormType }: AuthFormType) {
   const tPrimary = useTranslations("Primary");
+  const [emailLogin, setEmailLogin] = useState<string>("");
+  const [passwordLogin, setPasswordLogin] = useState<string>("");
+  const [isLoginPasswordVisible, setIsLoginPasswordVisible] = useState(false);
+  const [isLoginLoading, setIsLoginLoading] = useState(false);
+
+  const [emailSignUp, setEmailSignUp] = useState<string>("");
+  const [passwordSignUp, setPasswordSignUp] = useState<string>("");
+  const [checkPasswordSignUp, setCheckPasswordSignUp] = useState<string>("");
+  const [isSignUpPasswordVisible, setIsSignUpPasswordVisible] = useState(false);
+  const [isSignUpLoading, setIsSignUpLoading] = useState(false);
+
+  const isLoginEmail = apiUser.USER_001.map((e) => e.email);
+  const isLoginPassword = apiUser.USER_001.map((e) => e.password);
+  const dispatch = useDispatch();
+
+  const router = useRouter();
+  const locale = useLocale();
 
   const handleSwitchForm = (formType: "login" | "signup") => {
     setFormType(formType);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleLoginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const fetchUser = () => {
+      setIsLoginLoading(true);
+
+      try {
+        //Thay apiUser bằng apiUsers
+        const findUser = apiUser.USER_001.find(
+          (u) => u.email === emailLogin && u.password === passwordLogin
+        );
+        if (findUser) {
+          dispatch(loginSuccess(findUser));
+          router.push("/", { locale });
+        }
+      } catch (error) {
+        console.error("Login error:", error);
+      } finally {
+        setIsLoginLoading(false);
+      }
+    };
+    fetchUser();
+  };
+
+  const handleSignUpSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     event.stopPropagation();
   };
 
   return (
     <div className={cx("form-wrapper")}>
       <div className={cx("form-container")}>
-        <h1 className={cx("brand-name")}>d2csgame</h1>
+        <Link href="/" target="_blank" className={cx("back-home")}>
+          <ArrowBackIcon className={cx("back-icon")} />
+          <h1 className={cx("brand-name")}>d2csgame</h1>
+        </Link>
 
         <div className={cx("switch-form")}>
           <div className={cx("switch")}>
@@ -71,26 +125,37 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
 
           {formType === "login" ? (
             <div className={cx("frame")}>
-              <form className={cx("form")} onSubmit={handleSubmit}>
+              <form className={cx("form")} onSubmit={handleLoginSubmit}>
                 <div className={cx("input-form")}>
                   <input
                     className={cx("input")}
                     type="text"
                     placeholder={tPrimary("loginEmail")}
+                    value={emailLogin}
+                    onChange={(e) => setEmailLogin(e.target.value)}
+                    autoComplete="username"
                   />
                 </div>
-                <p className={cx("login-wrong")}>
-                  {tPrimary("wrongLoginEmail")}
-                </p>
+                {emailLogin && !isLoginEmail.includes(emailLogin) && (
+                  <p className={cx("login-wrong")}>
+                    {tPrimary("wrongLoginEmail")}
+                  </p>
+                )}
 
                 <div className={cx("input-form")}>
                   <input
                     className={cx("input")}
-                    type="password"
+                    type={isLoginPasswordVisible ? "text" : "password"}
                     placeholder={tPrimary("loginPassword")}
+                    value={passwordLogin}
+                    onChange={(e) => setPasswordLogin(e.target.value)}
+                    autoComplete="current-password"
                   />
 
                   <VisibilityIcon
+                    onMouseDown={() => setIsLoginPasswordVisible(true)}
+                    onMouseUp={() => setIsLoginPasswordVisible(false)}
+                    onMouseLeave={() => setIsLoginPasswordVisible(false)}
                     style={{
                       width: "36px",
                       height: "36px",
@@ -98,9 +163,21 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                     }}
                   />
                 </div>
-                <p className={cx("login-wrong")}>
-                  {tPrimary("wrongLoginPassword")}
-                </p>
+                {passwordLogin && !isLoginPassword.includes(passwordLogin) && (
+                  <p className={cx("login-wrong")}>
+                    {tPrimary("wrongLoginPassword")}
+                  </p>
+                )}
+
+                {isLoginLoading ? (
+                  <div className={cx("loading")}>
+                    <AutorenewIcon className={cx("loading-icon")} />
+                  </div>
+                ) : (
+                  <button className={cx("submit")} type="submit">
+                    <h4 className={cx("login-submit")}>{tPrimary("login")}</h4>
+                  </button>
+                )}
               </form>
 
               <div className={cx("password")}>
@@ -109,7 +186,7 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                 </p>
               </div>
 
-              <h1 style={{ fontSize: "2.4rem", margin: "24px 0 36px 0" }}>
+              <h1 style={{ fontSize: "2.4rem", marginBottom: "24px" }}>
                 {tPrimary("Or")}
               </h1>
 
@@ -123,19 +200,27 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                   {tPrimary("loginWithSteam")}
                 </h2>
               </div>
-
-              <button className={cx("submit")} type="submit">
-                <h4 className={cx("login-submit")}>{tPrimary("login")}</h4>
-              </button>
             </div>
           ) : (
             <div className={cx("frame")}>
-              <form className={cx("form")} onSubmit={handleSubmit}>
+              <form className={cx("form")} onSubmit={handleSignUpSubmit}>
+                <div style={{ display: "none" }}>
+                  <input
+                    type="text"
+                    autoComplete="username"
+                    value={emailSignUp}
+                    readOnly
+                  />
+                </div>
+
                 <div className={cx("input-form")}>
                   <input
                     className={cx("input")}
                     type="text"
                     placeholder={tPrimary("signupEmail")}
+                    value={emailSignUp}
+                    onChange={(e) => setEmailSignUp(e.target.value)}
+                    autoComplete="username"
                   />
                 </div>
                 <p className={cx("login-wrong")}>
@@ -147,6 +232,9 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                     className={cx("input")}
                     type="password"
                     placeholder={tPrimary("signupPassword")}
+                    value={passwordSignUp}
+                    onChange={(e) => setPasswordSignUp(e.target.value)}
+                    autoComplete="new-password"
                   />
                   <VisibilityIcon
                     style={{
@@ -165,6 +253,9 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                     className={cx("input")}
                     type="password"
                     placeholder={tPrimary("signupMatchPassword")}
+                    value={checkPasswordSignUp}
+                    onChange={(e) => setCheckPasswordSignUp(e.target.value)}
+                    autoComplete="new-password"
                   />
                   <VisibilityIcon
                     style={{
@@ -207,6 +298,10 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
             </div>
           )}
         </div>
+      </div>
+
+      <div className={cx("background-frame")}>
+        <img className={cx("background")} src="/assets/img/logo-dota2.png" />
       </div>
     </div>
   );
