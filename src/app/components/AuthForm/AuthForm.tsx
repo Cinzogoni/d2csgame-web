@@ -56,7 +56,7 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
       setIsLoginLoading(true);
 
       try {
-        //Thay apiUser bằng apiUsers
+        //lam_dev Thay apiUser bằng apiUsers
         const findUser = apiUser.USER_001.find(
           (u) => u.email === emailLogin && u.password === passwordLogin
         );
@@ -269,6 +269,10 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                 <p className={cx("login-wrong")}>
                   {tPrimary("wrongMatchPassword")}
                 </p>
+
+                <button className={cx("submit")} type="submit">
+                  <h4 className={cx("login-submit")}>{tPrimary("signup")}</h4>
+                </button>
               </form>
 
               <div className={cx("password")}>
@@ -291,10 +295,6 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
                   {tPrimary("signupWithSteam")}
                 </h2>
               </div>
-
-              <button className={cx("submit")} type="submit">
-                <h4 className={cx("login-submit")}>{tPrimary("signup")}</h4>
-              </button>
             </div>
           )}
         </div>

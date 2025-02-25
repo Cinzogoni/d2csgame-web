@@ -13,7 +13,7 @@ export const routing = defineRouting({
       en: "/home",
       ru: "home",
     },
-    "/users/[userName]": {
+    "/user/[userName]": {
       vi: "/user/[userName]",
       en: "/user/[userName]",
       ru: "/user/[userName]",

@@ -36,7 +36,9 @@
     "wrongSignupPassword": "Mật khẩu ít nhất 8 ký tự. Có một ký tự 1 hoa, 1 đặc biệt",
     "wrongMatchPassword": "Mật khẩu không khớp",
     "signupWithSteam": "Đăng ký với Steam",
-    "forgotPassword": "Quên mật khẩu? Nhấp vào đây để cài lại!"
+    "forgotPassword": "Quên mật khẩu? Nhấp vào đây để cài lại!",
+    "accountInfo": "Thông tin tài khoản",
+    "logout": "Đăng xuất"
   },
 
   "Heros": {

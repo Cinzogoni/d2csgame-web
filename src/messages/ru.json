@@ -36,7 +36,9 @@
     "wrongSignupPassword": "Мин. 8 символов, 1 заглавная, 1 спец.",
     "wrongMatchPassword": "Пароль не совпадает",
     "signupWithSteam": "Зарегистрироваться через Steam",
-    "forgotPassword": "Забыли пароль? Нажмите для сброса!"
+    "forgotPassword": "Забыли пароль? Нажмите для сброса!",
+    "accountInfo": "Аккаунт",
+    "logout": "Выйти"
   },
 
   "Heros": {

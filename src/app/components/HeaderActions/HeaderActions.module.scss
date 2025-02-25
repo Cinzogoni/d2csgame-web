@@ -7,6 +7,7 @@
   margin-right: 12px;
   border-radius: $frame-corner-radius;
   box-shadow: $element-shadow;
+  position: relative;
 
   .account {
     width: 100%;
@@ -30,6 +31,54 @@
     .icon {
       width: 35px;
       height: 35px;
+    }
+  }
+
+  .info-box {
+    position: absolute;
+    z-index: 1000;
+    left: -80px;
+    top: 65px;
+    width: 194px;
+    height: 106px;
+    display: flex;
+    align-items: flex-end;
+
+    .info {
+      width: 100%;
+      background-color: $hover-background-color;
+      box-shadow: $frame-shadow;
+      border: $primary-separation;
+      border-radius: $element-corner-radius;
+
+      .info-manager {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 6px 0 6px;
+        margin: 12px 0;
+        cursor: pointer;
+
+        .info-title {
+          color: $text-hover-color;
+          font: {
+            size: 1.5rem;
+            weight: 600;
+          }
+        }
+
+        .account-manager {
+          color: $text-hover-color;
+          width: 30px;
+          height: 30px;
+        }
+
+        .logout {
+          color: $text-hover-color;
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 }

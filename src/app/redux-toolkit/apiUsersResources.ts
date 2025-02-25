@@ -4,6 +4,11 @@ import { apiUsers } from "../services/ProductService";
 
 export const fetchUsers = createAsyncThunk("api/fetchUsers", apiUsers);
 
+// const savedUser = localStorage.getItem("currentUser");
+
+const savedUser =
+  typeof window !== "undefined" ? localStorage.getItem("currentUser") : null;
+
 interface UserState {
   currentUser: User | null;
   apiLoading: boolean;
@@ -11,7 +16,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  currentUser: null,
+  currentUser: savedUser ? JSON.parse(savedUser) : null,
   apiLoading: false,
   apiError: null,
 };
@@ -22,9 +27,11 @@ const apiUsersSlice = createSlice({
   reducers: {
     loginSuccess: (state, action: PayloadAction<User>) => {
       state.currentUser = action.payload;
+      localStorage.setItem("currentUser", JSON.stringify(action.payload));
     },
     logout: (state) => {
       state.currentUser = null;
+      localStorage.removeItem("currentUser");
     },
   },
   extraReducers: (builder) => {

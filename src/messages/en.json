@@ -37,7 +37,9 @@
     "wrongPassword": "At least 8 chars, 1 uppercase, 1 special",
     "wrongMatchPassword": "Password does not match",
     "signupWithSteam": "Sign up with Steam",
-    "forgotPassword": "Forgot password? Click to reset!"
+    "forgotPassword": "Forgot password? Click to reset!",
+    "accountInfo": "Account Info",
+    "logout": "Logout"
   },
 
   "Heros": {
