@@ -9,7 +9,7 @@ import {
   routing,
   usePathname,
   useRouter,
-  useNavigate,
+  isNavigate,
 } from "src/i18n/routing";
 import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
@@ -34,12 +34,12 @@ function LanguagesSwitcher() {
   const onSelectChange = (nextLocale: Locale) => {
     setSelectedLocale(nextLocale);
 
-    const dynamicUrl = useNavigate(pathname, {
+    const dynamicUrl = isNavigate(pathname, {
       heroName: heroNameString,
       name: heroProductString,
     });
 
-    //@ts-ignore
+    //@ts-expect-error: Push Language OK
     router.push(dynamicUrl, { locale: nextLocale });
     setIsOpen(false);
   };
@@ -59,6 +59,7 @@ function LanguagesSwitcher() {
     <div className={cx("wrapper")} onClick={toggleSelect}>
       <div className={cx("arrow-down")} />
       <div className={cx("selected-flag")}>
+        {/* eslint-disable @next/next/no-img-element */}
         <img
           className={cx("flag-img")}
           src={flagMapping[selectedLocale]}
@@ -75,6 +76,7 @@ function LanguagesSwitcher() {
                 e.stopPropagation(), onSelectChange(localeItem);
               }}
             >
+              {/* eslint-disable @next/next/no-img-element */}
               <img
                 className={cx("opt-img")}
                 src={flagMapping[localeItem]}

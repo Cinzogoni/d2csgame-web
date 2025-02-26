@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 import { useState, useLayoutEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Link, useNavigate, usePathname } from "src/i18n/routing";
+import { Link, isNavigate, usePathname } from "src/i18n/routing";
 
 import { ProductCategories } from "src/app/types/dataType";
 import ReactPlayer from "react-player";
@@ -243,7 +243,7 @@ function ProductGroupsTemplate({
     const dynamicPath = paths[productType] || "";
 
     if (dynamicPath) {
-      return useNavigate(dynamicPath, {
+      return isNavigate(dynamicPath, {
         heroName: characterName,
         name: name,
       });

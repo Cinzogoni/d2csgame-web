@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 import { Fragment, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
@@ -25,7 +25,7 @@ const handleMenuLink = (classify: string, productType: string) => {
   const dynamicPath = paths[productType] || "";
 
   if (dynamicPath) {
-    return useNavigate(dynamicPath, {
+    return isNavigate(dynamicPath, {
       theClassify: classify,
     });
   }
@@ -50,7 +50,7 @@ const handleSubMenuLink = (
   const dynamicPath = paths[productType] || "";
 
   if (dynamicPath) {
-    return useNavigate(dynamicPath, {
+    return isNavigate(dynamicPath, {
       theClassify: classify,
       theClass: isClass,
     });
@@ -280,7 +280,7 @@ function NavBar() {
             onMouseLeave={() => setHoveredNavId(null)}
           >
             <Link
-              //@ts-ignore
+              //@ts-expect-error: Link Map OK
               href={nav.link}
               target="_blank"
             >
@@ -297,7 +297,7 @@ function NavBar() {
                     {nav.menu.map((menu) => (
                       <Fragment key={menu.id}>
                         <Link
-                          //@ts-ignore
+                          //@ts-expect-error: Link Map OK
                           href={menu.link(menu.title, menu.productType)}
                           className={cx("link")}
                           onMouseEnter={() => setHoveredSubMenuId(menu.id)}
@@ -323,7 +323,7 @@ function NavBar() {
                                   {menu.subMenu?.map((subMenu) => {
                                     return (
                                       <Link
-                                        //@ts-ignore
+                                        //@ts-expect-error: Link Map OK
                                         href={subMenu.link(
                                           menu.title,
                                           subMenu.title,

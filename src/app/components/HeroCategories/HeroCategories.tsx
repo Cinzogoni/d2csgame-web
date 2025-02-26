@@ -4,7 +4,7 @@ const cx = classNames.bind(styles);
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 import { HeroCategoriesProps } from "src/app/types/dataType";
 
 import GridSystem from "../GridSystem/GridSystem";
@@ -70,7 +70,7 @@ function HeroCategories({ heroCategories, heroName, avatar }: HeroProps) {
           return "";
       }
 
-      return useNavigate(dynamicPath, {
+      return isNavigate(dynamicPath, {
         heroName: heroName,
         name: name,
       });
@@ -87,6 +87,7 @@ function HeroCategories({ heroCategories, heroName, avatar }: HeroProps) {
           <strong style={{ fontWeight: "bold" }}>{heroName}</strong>
         </h1>
         <Link href="/heros" target="_blank">
+          {/* eslint-disable @next/next/no-img-element */}
           <img src={avatar} alt={heroName} className={cx("hero-avatar")} />
         </Link>
       </div>
@@ -161,13 +162,14 @@ function HeroCategories({ heroCategories, heroName, avatar }: HeroProps) {
                         colMi={cx("mi-12")}
                       >
                         <Link
-                          //@ts-ignore
+                          //@ts-expect-error: Map Link OK
                           href={handleProductLink(heroName, category.name)}
                           target="_blank"
                         >
                           <div className={cx("boxes")}>
                             <div className={cx("box")}>
                               <div className={cx("category-img")}>
+                                {/* eslint-disable @next/next/no-img-element */}
                                 <img
                                   className={cx("img")}
                                   src={category.images[0].filePath}

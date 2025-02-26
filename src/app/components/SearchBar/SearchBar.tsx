@@ -8,11 +8,11 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import useDebounce from "src/app/hooks/useDebounce";
 import Select from "react-select";
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 
 import apiSearchResult from "src/api/fakeApi/apiSearchResult";
 
-import { dataSearchResult } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SearchBar() {
   const t = useTranslations("Primary");
@@ -20,6 +20,7 @@ function SearchBar() {
   const [searchInput, setSearchInput] = useState<string>("");
   const [isClient, setIsClient] = useState<boolean>(false);
   const debouncedSearchInput = useDebounce(searchInput, 250);
+  const { dataSearchResult } = useFetchApiProductResources();
 
   //lam_dev thay apiSearchResult === dataSearchResult
   const result = apiSearchResult.result.map((all) => all);
@@ -59,7 +60,7 @@ function SearchBar() {
     const dynamicPath = paths[productType] || "";
 
     if (dynamicPath) {
-      return useNavigate(dynamicPath, {
+      return isNavigate(dynamicPath, {
         heroName: characterName,
         name: name,
       });

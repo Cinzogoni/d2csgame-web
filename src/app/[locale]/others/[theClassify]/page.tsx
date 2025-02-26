@@ -6,9 +6,10 @@ import apiProductCategories from "src/api/fakeApi/apiProductCategories";
 import { useParams } from "next/navigation";
 import { useState, useLayoutEffect } from "react";
 
-import { dataProductCategories } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function OthersClassify() {
+  const { dataProductCategories } = useFetchApiProductResources();
   const { theClassify } = useParams();
   const [classifyTitle, setClassifyTitle] = useState<string>("");
   const decodedClassify =
@@ -35,8 +36,18 @@ function OthersClassify() {
 
   const fourTitle = allClasses.includes("Courier") ? ["Courier"] : [];
 
-  const productType =
-    "WEATHER_EFFECTS" && "TERRAIN" && "MUSIC_PACK" && "COURIER";
+  const productMapping = [
+    { title: "Steam Wallet", type: "WEATHER_EFFECTS" },
+    { title: "Steam Point", type: "TERRAIN" },
+    { title: "Steam Point", type: "MUSIC_PACK" },
+    { title: "Steam Point", type: "COURIER" },
+  ];
+
+  const matchedItem = productMapping.find((item) =>
+    allClasses.includes(item.title)
+  );
+
+  const productType = matchedItem ? matchedItem.type : "";
 
   useLayoutEffect(() => {
     const foundClassify = othersCategories

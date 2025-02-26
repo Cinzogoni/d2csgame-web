@@ -1,9 +1,10 @@
 import ProductGroupsTemplate from "src/app/components/ProductGroupsTemplate/ProductGroupsTemplate";
 import apiProductCategories from "src/api/fakeApi/apiProductCategories";
 
-import { dataProductCategories } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function OtherCategoryGroups() {
+  const { dataProductCategories } = useFetchApiProductResources();
   // lam_dev thay apiProductCategories === dataProductCategories
   const othersCategories = apiProductCategories.othersCategories.map(
     (detail) => detail
@@ -25,8 +26,18 @@ function OtherCategoryGroups() {
 
   const fourTitle = allClasses.includes("Courier") ? ["Courier"] : [];
 
-  const productType =
-    "WEATHER_EFFECTS" && "TERRAIN" && "MUSIC_PACK" && "COURIER";
+  const productMapping = [
+    { title: "Weather Effects", type: "WEATHER_EFFECTS" },
+    { title: "Terrain", type: "TERRAIN" },
+    { title: "Music Pack", type: "MUSIC_PACK" },
+    { title: "Courier", type: "COURIER" },
+  ];
+
+  const matchedItem = productMapping.find((item) =>
+    allClasses.includes(item.title)
+  );
+
+  const productType = matchedItem ? matchedItem.type : "";
 
   return (
     <ProductGroupsTemplate

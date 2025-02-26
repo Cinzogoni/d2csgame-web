@@ -5,10 +5,11 @@ import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate"
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { dataHomePageResources } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function HeroArcana() {
   const { heroName, name } = useParams();
+  const { dataHomePageResources } = useFetchApiProductResources();
 
   const heroNameString =
     typeof heroName === "string" ? decodeURIComponent(heroName) : "";

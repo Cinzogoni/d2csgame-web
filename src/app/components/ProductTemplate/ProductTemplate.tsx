@@ -5,7 +5,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 import { useTranslations } from "next-intl";
 import { Fragment } from "react";
 import { ProductCategories } from "src/app/types/dataType";
@@ -73,7 +73,7 @@ function ProductTemplate({
     const dynamicPath = paths[productType] || "";
 
     if (dynamicPath) {
-      return useNavigate(dynamicPath, {
+      return isNavigate(dynamicPath, {
         heroName: characterName,
         name: name,
       });
@@ -214,7 +214,7 @@ function ProductTemplate({
 
               <Link
                 //@ts-ignore
-                href={useNavigate("/heros/[heroName]", {
+                href={isNavigate("/heros/[heroName]", {
                   heroName: characterName,
                 })}
                 target="_blank"

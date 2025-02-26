@@ -4,16 +4,16 @@ import styles from "./Categories.module.scss";
 import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Button from "../Button/Button";
 import GridSystem from "../GridSystem/GridSystem";
 
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { dataHomePageResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 type IsCategoriesType = {
   id: number | null;
@@ -26,6 +26,7 @@ function Categories() {
   const tPrimary = useTranslations("Primary");
   const tHeros = useTranslations("Heros");
   const [selectedId, setSelectedId] = useState<number | null>(1);
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   const isCategories: IsCategoriesType[] = [
     {
@@ -92,7 +93,7 @@ function Categories() {
     const dynamicPath = paths[productType] || "";
 
     if (dynamicPath) {
-      return useNavigate(dynamicPath, {
+      return isNavigate(dynamicPath, {
         heroName: characterName,
         name: name,
       });
@@ -169,7 +170,7 @@ function Categories() {
                 >
                   <div className={cx("boxes")}>
                     <Link
-                      //@ts-ignore
+                      //@ts-expect-error: Map Link Ok
                       href={handleCategoriesLink(
                         category.character.name,
                         category.name,
@@ -180,6 +181,7 @@ function Categories() {
                     >
                       <div className={cx("box")}>
                         <div className={cx("category-img")}>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             className={cx("img")}
                             src={category.images[0].filePath}

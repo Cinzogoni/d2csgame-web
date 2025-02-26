@@ -10,7 +10,7 @@ const cx = classNames.bind(styles);
 import { useTranslations } from "next-intl";
 
 import { useState } from "react";
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 import { RootState } from "src/app/redux-toolkit/store";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "src/app/redux-toolkit/apiUsersResources";
@@ -29,7 +29,7 @@ function HeaderActions() {
       style={{ backgroundColor: currentUser ? "#2c2c35" : "transparent" }}
     >
       <Link
-        //@ts-ignore
+        //@ts-expect-error: Map Link OK
         href={
           currentUser?.userName
             ? `/user/${currentUser.userName}`
@@ -57,8 +57,8 @@ function HeaderActions() {
         <div className={cx("info-box")}>
           <div className={cx("info")} onMouseLeave={() => setInfoShow(false)}>
             <Link
-              //@ts-ignore
-              href={useNavigate("/user/[userName]", {
+              //@ts-expect-error: Map Link OK
+              href={isNavigate("/user/[userName]", {
                 userName: currentUser?.userName,
               })}
               className={cx("info-manager")}

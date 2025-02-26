@@ -14,6 +14,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -58,6 +62,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -102,6 +110,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -146,6 +158,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "WEATHER_EFFECTS",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -190,6 +206,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -234,6 +254,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "SET",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -973,6 +997,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1017,6 +1045,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1061,6 +1093,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1105,6 +1141,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1149,6 +1189,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1193,6 +1237,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ITEM",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1671,6 +1719,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ARCANA",
+      classify: {
+        title: "arcana",
+        class: "arcana",
+      },
       images: [
         {
           id: 1,
@@ -1715,6 +1767,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ARCANA",
+      classify: {
+        title: "arcana",
+        class: "arcana",
+      },
       images: [
         {
           id: 1,
@@ -1761,6 +1817,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "TAUNT",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1805,6 +1865,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "TAUNT",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1851,6 +1915,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ARCANA",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1877,6 +1945,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "ARCANA",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1903,6 +1975,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "TAUNT",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1929,6 +2005,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "TAUNT",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1955,6 +2035,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "WEATHER_EFFECTS",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -1999,6 +2083,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "WEATHER_EFFECTS",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -2043,6 +2131,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "TERRAIN",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -2086,6 +2178,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "MUSIC_PACK",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -2128,6 +2224,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "COURIER",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,
@@ -2172,6 +2272,10 @@ const apiHomePageResources = {
         attribute: "",
       },
       productType: "COURIER",
+      classify: {
+        title: "",
+        class: "",
+      },
       images: [
         {
           id: 1,

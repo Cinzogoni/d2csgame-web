@@ -14,9 +14,9 @@ function Header() {
   return (
     <Fragment>
       <div className={cx("header-left")}>
-        {/* @ts-ignore */}
         <Link href="/">
           <div className={cx("logo")}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className={cx("img")}
               src="/assets/img/d2csgame-logo.png"

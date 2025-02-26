@@ -123,11 +123,12 @@ function Banner() {
                     colMi={cx("mi-12")}
                   >
                     <Link
-                      //@ts-ignore
+                      //@ts-expect-error: Map Link OK
                       href={event.link}
                       target="_blank"
                     >
                       <div className={cx("events-img")}>
+                        {/* eslint-disable @next/next/no-img-element */}
                         <img
                           className={cx("events-banner")}
                           src={event.imgUrl}
@@ -177,6 +178,7 @@ function Banner() {
           {services.map((service, index) => {
             return (
               <div key={index} className={cx("item")}>
+                {/* eslint-disable @next/next/no-img-element */}
                 <img
                   className={cx("service-img")}
                   src={service.imgUrl}

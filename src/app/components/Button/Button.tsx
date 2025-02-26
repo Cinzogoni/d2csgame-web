@@ -14,8 +14,11 @@ interface ButtonProps {
 
 function Button({ children, link }: ButtonProps) {
   return (
-    // @ts-ignore
-    <Link href={link} target="_blank">
+    <Link
+      // @ts-expect-error: Map Link OK
+      href={link}
+      target="_blank"
+    >
       <button className={cx("btn")}>
         <h3 style={{ fontSize: "1.8rem", color: "rgba(255, 255, 255, 0.8)" }}>
           {children}

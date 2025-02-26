@@ -1,9 +1,10 @@
 import ProductGroupsTemplate from "src/app/components/ProductGroupsTemplate/ProductGroupsTemplate";
 import apiProductCategories from "src/api/fakeApi/apiProductCategories";
 
-import { dataProductCategories } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SetCategoryGroups() {
+  const { dataProductCategories } = useFetchApiProductResources();
   // lam_dev thay apiProductCategories === dataProductCategories
   const setCategories = apiProductCategories.setCategories.map(
     (detail) => detail

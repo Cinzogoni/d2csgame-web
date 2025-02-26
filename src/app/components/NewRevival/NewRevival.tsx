@@ -16,7 +16,7 @@ import "swiper/css/navigation";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
 function NewRevival() {
@@ -105,7 +105,7 @@ function NewRevival() {
     const dynamicPath = paths[productType] || "";
 
     if (dynamicPath) {
-      return useNavigate(dynamicPath, {
+      return isNavigate(dynamicPath, {
         name: name,
       });
     }
@@ -150,7 +150,7 @@ function NewRevival() {
 
         <div className={cx("newItems")}>
           <Swiper
-            // @ts-ignore
+            // @ts-expect-error: Ref Use OK
             ref={swiperRef}
             effect={"coverflow"}
             centeredSlides={true}
@@ -198,11 +198,12 @@ function NewRevival() {
                       </div>
                     )}
                     <Link
-                      //@ts-ignore
+                      //@ts-expect-error: Map Link OK
                       href={handleLink(newUpdated.name, newUpdated.productType)}
                       target="_blank"
                     >
                       <div className={cx("img-box")}>
+                        {/* eslint-disable @next/next/no-img-element */}
                         <img
                           className={cx("img")}
                           src={newUpdated.images[0].filePath}

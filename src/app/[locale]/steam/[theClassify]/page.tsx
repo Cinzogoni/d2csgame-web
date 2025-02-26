@@ -6,9 +6,10 @@ import apiProductCategories from "src/api/fakeApi/apiProductCategories";
 import { useParams } from "next/navigation";
 import { useState, useLayoutEffect } from "react";
 
-import { dataProductCategories } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SteamClassify() {
+  const { dataProductCategories } = useFetchApiProductResources();
   const { theClassify } = useParams();
   const [classifyTitle, setClassifyTitle] = useState<string>("");
   const decodedClassify =
@@ -28,7 +29,16 @@ function SteamClassify() {
 
   const secondTitle = allClasses.includes("Steam Point") ? ["Steam Point"] : [];
 
-  const productType = "STEAM_WALLET" && "STEAM_POINT";
+  const productMapping = [
+    { title: "Steam Wallet", type: "STEAM_WALLET" },
+    { title: "Steam Point", type: "STEAM_POINT" },
+  ];
+
+  const matchedItem = productMapping.find((item) =>
+    allClasses.includes(item.title)
+  );
+
+  const productType = matchedItem ? matchedItem.type : "";
 
   useLayoutEffect(() => {
     const foundClassify = steam

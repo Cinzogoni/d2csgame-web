@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import useSlider from "src/app/hooks/useSlider";
@@ -16,12 +16,13 @@ import GridSystem from "../GridSystem/GridSystem";
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { dataHomePageResources } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function Sets() {
   const tPrimary = useTranslations("Primary");
   const tHeros = useTranslations("Heros");
   const [windowWidth, setWindowWidth] = useState(0);
+  const { dataHomePageResources } = useFetchApiProductResources();
 
   //lam_dev thay apiHomePageResources === dataHomePageResources
   const sets = apiHomePageResources.sets.map((set) => set);
@@ -54,7 +55,7 @@ function Sets() {
   const handleSetLink = (heroName: string, name: string) => {
     const dynamicLink = `/heros/[heroName]/sets/[name]`;
 
-    return useNavigate(dynamicLink, { heroName: heroName, name: name });
+    return isNavigate(dynamicLink, { heroName: heroName, name: name });
   };
 
   return (

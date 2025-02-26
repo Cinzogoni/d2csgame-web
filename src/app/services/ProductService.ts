@@ -16,6 +16,7 @@ const apiSearchResult = async (): Promise<ProductCategories[]> => {
   return data;
 };
 
+//
 const REST_API_HERO_CATEGORIES_URL = `http://localhost:8080/api/heros`;
 const apiHeroCategories = async (): Promise<ProductCategories[]> => {
   const response = await axios.get<ProductCategories[]>(

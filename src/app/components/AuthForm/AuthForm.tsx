@@ -17,7 +17,7 @@ import apiUser from "src/api/fakeApi/apiUser";
 import { loginSuccess } from "src/app/redux-toolkit/apiUsersResources";
 import { useDispatch } from "react-redux";
 
-import { apiUsers } from "src/app/services/ProductService";
+// import { apiUsers } from "src/app/services/ProductService";
 
 type AuthFormType = {
   formType: "login" | "signup";
@@ -34,8 +34,8 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
   const [emailSignUp, setEmailSignUp] = useState<string>("");
   const [passwordSignUp, setPasswordSignUp] = useState<string>("");
   const [checkPasswordSignUp, setCheckPasswordSignUp] = useState<string>("");
-  const [isSignUpPasswordVisible, setIsSignUpPasswordVisible] = useState(false);
-  const [isSignUpLoading, setIsSignUpLoading] = useState(false);
+  // const [isSignUpPasswordVisible, setIsSignUpPasswordVisible] = useState(false);
+  // const [isSignUpLoading, setIsSignUpLoading] = useState(false);
 
   const isLoginEmail = apiUser.USER_001.map((e) => e.email);
   const isLoginPassword = apiUser.USER_001.map((e) => e.password);
@@ -191,6 +191,7 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
               </h1>
 
               <div className={cx("steam")}>
+                {/* eslint-disable @next/next/no-img-element */}
                 <img
                   className={cx("icon")}
                   src="/assets/img/steam-logo.png"
@@ -286,6 +287,7 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
               </h1>
 
               <div className={cx("steam")}>
+                {/* eslint-disable @next/next/no-img-element */}
                 <img
                   className={cx("icon")}
                   src="/assets/img/steam-logo.png"
@@ -301,7 +303,12 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
       </div>
 
       <div className={cx("background-frame")}>
-        <img className={cx("background")} src="/assets/img/logo-dota2.png" />
+        {/* eslint-disable @next/next/no-img-element */}
+        <img
+          className={cx("background")}
+          src="/assets/img/logo-dota2.png"
+          alt="logo-dota2"
+        />
       </div>
     </div>
   );

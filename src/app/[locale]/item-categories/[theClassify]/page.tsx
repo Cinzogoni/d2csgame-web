@@ -6,9 +6,10 @@ import apiProductCategories from "src/api/fakeApi/apiProductCategories";
 import { useParams } from "next/navigation";
 import { useState, useLayoutEffect } from "react";
 
-import { dataProductCategories } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function ItemClassify() {
+  const { dataProductCategories } = useFetchApiProductResources();
   const { theClassify } = useParams();
   const [classifyTitle, setClassifyTitle] = useState<string>("");
   const decodedClassify =

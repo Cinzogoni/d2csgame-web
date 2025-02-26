@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import useDebounce from "src/app/hooks/useDebounce";
 import Select from "react-select";
 import GridSystem from "../GridSystem/GridSystem";
-import { Link, useNavigate } from "src/i18n/routing";
+import { Link, isNavigate } from "src/i18n/routing";
 
 import apiHeroCategories from "src/api/fakeApi/apiHeroCategories";
 
@@ -52,7 +52,7 @@ function HeroList() {
   const handleProductLink = (heroName: string) => {
     const dynamicPath = "/heros/[heroName]";
 
-    return useNavigate(dynamicPath, { heroName: heroName });
+    return isNavigate(dynamicPath, { heroName: heroName });
   };
 
   return (
@@ -121,7 +121,7 @@ function HeroList() {
               colMi={cx("mi-12")}
             >
               <Link
-                //@ts-ignore
+                //@ts-expect-error: Map Link OK
                 href={handleProductLink(hero.character.name)}
                 target="_blank"
                 style={{
@@ -132,6 +132,7 @@ function HeroList() {
               >
                 <div className={cx("box")}>
                   <div className={cx("img-box")}>
+                    {/* eslint-disable @next/next/no-img-element */}
                     <img
                       src={hero.character.avatar}
                       alt={hero.character.name}

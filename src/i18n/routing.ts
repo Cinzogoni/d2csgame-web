@@ -238,7 +238,7 @@ export const routing = defineRouting({
   },
 });
 
-const useNavigate = (
+const isNavigate = (
   pathname: string,
   params: Record<string, string | undefined>
 ): string => {
@@ -262,4 +262,4 @@ const useNavigate = (
 export type Locale = (typeof routing.locales)[number];
 export const { Link, redirect, usePathname, useRouter } =
   createNavigation(routing);
-export { useNavigate };
+export { isNavigate };

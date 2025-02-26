@@ -4,10 +4,11 @@ import { useParams } from "next/navigation";
 import HeroCategories from "src/app/components/HeroCategories/HeroCategories";
 import apiHeroCategories from "src/api/fakeApi/apiHeroCategories";
 
-import { dataHeroCategories } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function HeroCategoryGroups() {
   const { heroName } = useParams() as { heroName: string };
+  const { dataHeroCategories } = useFetchApiProductResources();
 
   const heroNameString =
     typeof heroName === "string" ? decodeURIComponent(heroName) : "";

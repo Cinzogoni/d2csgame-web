@@ -5,10 +5,11 @@ import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate"
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { dataHomePageResources } from "src/api/api.list.ts";
+import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SteamWallet() {
   const { name } = useParams();
+  const { dataHomePageResources } = useFetchApiProductResources();
 
   const steamWalletName =
     typeof name === "string" ? decodeURIComponent(name) : "";
