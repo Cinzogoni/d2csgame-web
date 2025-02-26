@@ -5,10 +5,10 @@ import apiProductCategories from "src/api/fakeApi/apiProductCategories";
 import { useParams } from "next/navigation";
 import { useState, useLayoutEffect } from "react";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function ItemClass() {
-  const { dataProductCategories } = useFetchApiProductResources();
+  // const { dataProductCategories } = useFetchApiProductResources();
   const { theClassify, theClass } = useParams();
   const [classifyTitle, setClassifyTitle] = useState<string>("");
   const [classTitle, setClassTitle] = useState<string>("");
@@ -46,7 +46,7 @@ function ItemClass() {
       setClassifyTitle(foundClassify.title);
       setClassTitle(foundClassify.class);
     }
-  }, [decodedClassify, decodedClass]);
+  }, [decodedClassify, decodedClass, itemCategories]);
   return (
     <ProductGroupsTemplate
       productType="ITEM"

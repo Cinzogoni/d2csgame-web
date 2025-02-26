@@ -5,11 +5,11 @@ import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate"
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SteamWallet() {
   const { name } = useParams();
-  const { dataHomePageResources } = useFetchApiProductResources();
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   const steamWalletName =
     typeof name === "string" ? decodeURIComponent(name) : "";
@@ -28,8 +28,9 @@ function SteamWallet() {
   return (
     <ProductTemplate
       characterName={steamWalletName}
-      anotherProduct={anotherSteamWallet}
       //@ts-ignore
+      anotherProduct={anotherSteamWallet}
+      //@ts-expect-error: Checked Used OK
       apiMapping={steamWallet}
     />
   );

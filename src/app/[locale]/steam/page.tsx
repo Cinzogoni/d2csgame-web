@@ -1,10 +1,10 @@
 import ProductGroupsTemplate from "src/app/components/ProductGroupsTemplate/ProductGroupsTemplate";
 import apiProductCategories from "src/api/fakeApi/apiProductCategories";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SteamCategoryGroups() {
-  const { dataProductCategories } = useFetchApiProductResources();
+  // const { dataProductCategories } = useFetchApiProductResources();
   // lam_dev thay apiProductCategories === dataProductCategories
   const steam = apiProductCategories.steamCategories.map((detail) => detail);
 
@@ -18,7 +18,16 @@ function SteamCategoryGroups() {
 
   const secondTitle = allClasses.includes("Steam Point") ? ["Steam Point"] : [];
 
-  const productType = "STEAM_WALLET" && "STEAM_POINT";
+  const productMapping = [
+    { title: "Steam Wallet", type: "STEAM_WALLET" },
+    { title: "Steam Point", type: "STEAM_POINT" },
+  ];
+
+  const matchedItem = productMapping.find((item) =>
+    allClasses.includes(item.title)
+  );
+
+  const productType = matchedItem ? matchedItem.type : "";
 
   return (
     <ProductGroupsTemplate

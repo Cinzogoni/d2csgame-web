@@ -111,10 +111,11 @@ function ProductTemplate({
               <strong style={{ fontWeight: "bold" }}>{characterName}</strong>
             </h4>
             <Link
-              // @ts-ignore
+              // @ts-expect-error: Checked Used OK
               href={handleCharacterLink(characterName, apiMapping.productType)}
               style={{ height: "100%", display: "flex", alignItems: "center" }}
             >
+              {/* eslint-disable @next/next/no-img-element */}
               <img
                 src={apiMapping.character.avatar}
                 alt={characterName}
@@ -131,6 +132,7 @@ function ProductTemplate({
                 )
                 .map((img, index) => {
                   return (
+                    //eslint-disable @next/next/no-img-element
                     <img
                       key={index}
                       className={cx("product-img", {
@@ -213,7 +215,7 @@ function ProductTemplate({
               <h4 className={cx("title")}>{tHeros("similarProducts")}</h4>
 
               <Link
-                //@ts-ignore
+                //@ts-expect-error: Checked Used OK
                 href={isNavigate("/heros/[heroName]", {
                   heroName: characterName,
                 })}
@@ -268,7 +270,7 @@ function ProductTemplate({
                           colMi={cx("mi-12")}
                         >
                           <Link
-                            //@ts-ignore
+                            //@ts-expect-error: Checked Used OK
                             href={handleProductLink(
                               characterName,
                               another.name,
@@ -278,6 +280,7 @@ function ProductTemplate({
                           >
                             <div className={cx("products")}>
                               <div className={cx("img-box")}>
+                                {/* eslint-disable @next/next/no-img-element */}
                                 <img
                                   className={cx("img")}
                                   src={another.images[0].filePath}

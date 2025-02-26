@@ -5,7 +5,7 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 function SteamGroupTemplate() {
-  return <div></div>;
+  return <div className={cx("wrapper")}></div>;
 }
 
 export default SteamGroupTemplate;

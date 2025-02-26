@@ -1,7 +1,4 @@
-import { getTranslations } from "next-intl/server";
-
-async function Guide() {
-  const t = await getTranslations("Primary");
+function Guide() {
   return <h1>Guide Page</h1>;
 }
 

@@ -73,7 +73,8 @@ function LanguagesSwitcher() {
               className={cx("option")}
               key={localeItem}
               onClick={(e) => {
-                e.stopPropagation(), onSelectChange(localeItem);
+                e.stopPropagation();
+                onSelectChange(localeItem);
               }}
             >
               {/* eslint-disable @next/next/no-img-element */}

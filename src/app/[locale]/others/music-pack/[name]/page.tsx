@@ -5,11 +5,11 @@ import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate"
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function MusicPack() {
   const { name } = useParams();
-  const { dataHomePageResources } = useFetchApiProductResources();
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   const musicPackName =
     typeof name === "string" ? decodeURIComponent(name) : "";
@@ -29,7 +29,7 @@ function MusicPack() {
     <ProductTemplate
       characterName={musicPackName}
       anotherProduct={anotherMusicPack}
-      //@ts-ignore
+      //@ts-expect-error: Checked Used OK
       apiMapping={musicPack}
     />
   );

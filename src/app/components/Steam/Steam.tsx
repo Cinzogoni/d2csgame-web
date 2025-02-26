@@ -15,13 +15,13 @@ import GridSystem from "../GridSystem/GridSystem";
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function Steam() {
   const tPrimary = useTranslations("Primary");
   const tHeros = useTranslations("Heros");
   const [windowWidth, setWindowWidth] = useState(0);
-  const { dataHomePageResources } = useFetchApiProductResources();
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   //lam_dev thay apiHomePageResources === dataHomePageResources
   const steam = apiHomePageResources.steam.map((allSteam) => allSteam);
@@ -105,12 +105,13 @@ function Steam() {
                       colMi={cx("mi-12")}
                     >
                       <Link
-                        //@ts-ignore
+                        //@ts-expect-error: Checked Used OK
                         href={handleSteamLink(steam.name, steam.productType)}
                         target="_blank"
                       >
                         <div className={cx("steam")}>
                           <div className={cx("img-box")}>
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                               className={cx("img")}
                               src={steam.images[0].filePath}

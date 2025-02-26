@@ -5,11 +5,11 @@ import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate"
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function HeroTaunt() {
   const { heroName, name } = useParams();
-  const { dataHomePageResources } = useFetchApiProductResources();
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   const heroNameString =
     typeof heroName === "string" ? decodeURIComponent(heroName) : "";
@@ -38,7 +38,7 @@ function HeroTaunt() {
     <ProductTemplate
       characterName={heroNameString}
       anotherProduct={anotherTaunt}
-      //@ts-ignore
+      //@ts-expect-error: Checked Used OK
       apiMapping={heroTaunt}
     />
   );

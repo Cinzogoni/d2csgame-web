@@ -105,7 +105,7 @@ function ProductGroupsTemplate({
       handleSelected(theClassify);
       handleSelectedClass(theClassify, theClass);
     }
-  }, [theClassify, theClass]);
+  }, [theClassify, theClass, pathname]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
@@ -348,7 +348,7 @@ function ProductGroupsTemplate({
                       >
                         <div className={cx("img-frame")}>
                           <Link
-                            //@ts-ignore
+                            //@ts-expect-error: Checked Used OK
                             href={handleProductLink(
                               sale.character.name,
                               sale.name,
@@ -359,6 +359,7 @@ function ProductGroupsTemplate({
                           >
                             {sale.images[0] && (
                               <div className={cx("img-box-sale")}>
+                                {/* eslint-disable @next/next/no-img-element */}
                                 <img
                                   className={cx("img-sale")}
                                   src={sale.images[0].filePath}
@@ -562,7 +563,7 @@ function ProductGroupsTemplate({
                       colMi={cx("mi-12")}
                     >
                       <Link
-                        //@ts-ignore
+                        //@ts-expect-error: Checked Used OK
                         href={handleProductLink(
                           product.character.name,
                           product.name,
@@ -581,6 +582,7 @@ function ProductGroupsTemplate({
                         <div className={cx("product")}>
                           {product.images[0] && (
                             <div className={cx("img-box")}>
+                              {/* eslint-disable @next/next/no-img-element */}
                               <img
                                 className={cx("img")}
                                 src={product.images[0].filePath}

@@ -5,11 +5,11 @@ import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate"
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SteamPoint() {
   const { name } = useParams();
-  const { dataHomePageResources } = useFetchApiProductResources();
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   const steamPointName =
     typeof name === "string" ? decodeURIComponent(name) : "";
@@ -28,8 +28,9 @@ function SteamPoint() {
   return (
     <ProductTemplate
       characterName={steamPointName}
-      anotherProduct={anotherSteamPoint}
       //@ts-ignore
+      anotherProduct={anotherSteamPoint}
+      //@ts-expect-error: Checked Used OK
       apiMapping={steamPoint}
     />
   );

@@ -5,11 +5,11 @@ import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate"
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function NewRevivalCategories() {
   const { characterName, name } = useParams();
-  const { dataHomePageResources } = useFetchApiProductResources();
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   const characterNameString =
     typeof characterName === "string" ? decodeURIComponent(characterName) : "";
@@ -34,7 +34,7 @@ function NewRevivalCategories() {
     <ProductTemplate
       characterName=""
       anotherProduct={anotherNewRevival}
-      //@ts-ignore
+      //@ts-expect-error: Checked Used OK
       apiMapping={newRevival}
     />
   );

@@ -1,7 +1,4 @@
-import { getTranslations } from "next-intl/server";
-
-async function ShoppingCart() {
-  const t = await getTranslations("Primary");
+function ShoppingCart() {
   return <h1>ShoppingCart Page</h1>;
 }
 

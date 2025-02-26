@@ -16,13 +16,13 @@ import GridSystem from "../GridSystem/GridSystem";
 
 import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function Sets() {
   const tPrimary = useTranslations("Primary");
   const tHeros = useTranslations("Heros");
   const [windowWidth, setWindowWidth] = useState(0);
-  const { dataHomePageResources } = useFetchApiProductResources();
+  // const { dataHomePageResources } = useFetchApiProductResources();
 
   //lam_dev thay apiHomePageResources === dataHomePageResources
   const sets = apiHomePageResources.sets.map((set) => set);
@@ -89,11 +89,12 @@ function Sets() {
                   >
                     <div className={cx("set")}>
                       <Link
-                        //@ts-ignore
+                        //@ts-expect-error: Checked Used OK
                         href={handleSetLink(outs.character.name, outs.name)}
                       >
                         {outs.images[0]?.filePath && (
                           <div className={cx("img-box")}>
+                            {/* eslint-disable @next/next/no-img-element */}
                             <img
                               className={cx("img")}
                               src={outs.images[0].filePath}
@@ -126,11 +127,7 @@ function Sets() {
       <div className={cx("sets")}>
         <div className={cx("heading")}>
           <h4 className={cx("title")}>{tHeros("sets")}</h4>
-          <Link
-            //@ts-ignore
-            href="/set-categories"
-            target="_blank"
-          >
+          <Link href="/set-categories" target="_blank">
             <h5 className={cx("view-all")}>{tPrimary("viewAll")}</h5>
           </Link>
         </div>
@@ -178,7 +175,7 @@ function Sets() {
                       colMi={cx("mi-12")}
                     >
                       <Link
-                        //@ts-ignore
+                        //@ts-expect-error: Checked Used OK
                         href={handleSetLink(set.character.name, set.name)}
                         target="_blank"
                       >
@@ -192,6 +189,7 @@ function Sets() {
                           )}
                           {set.images[0]?.filePath && (
                             <div className={cx("img-box")}>
+                              {/* eslint-disable @next/next/no-img-element */}
                               <img
                                 className={cx("img")}
                                 src={set.images[0].filePath}

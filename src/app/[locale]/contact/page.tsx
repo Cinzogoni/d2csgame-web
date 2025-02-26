@@ -1,7 +1,4 @@
-import { getTranslations } from "next-intl/server";
-
-async function Contact() {
-  const t = await getTranslations("Primary");
+function Contact() {
   return <h1>Contact Page</h1>;
 }
 

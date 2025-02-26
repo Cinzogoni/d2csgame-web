@@ -12,7 +12,7 @@ import { Link, isNavigate } from "src/i18n/routing";
 
 import apiSearchResult from "src/api/fakeApi/apiSearchResult";
 
-import { useFetchApiProductResources } from "src/api/api.list.ts";
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function SearchBar() {
   const t = useTranslations("Primary");
@@ -20,7 +20,7 @@ function SearchBar() {
   const [searchInput, setSearchInput] = useState<string>("");
   const [isClient, setIsClient] = useState<boolean>(false);
   const debouncedSearchInput = useDebounce(searchInput, 250);
-  const { dataSearchResult } = useFetchApiProductResources();
+  // const { dataSearchResult } = useFetchApiProductResources();
 
   //lam_dev thay apiSearchResult === dataSearchResult
   const result = apiSearchResult.result.map((all) => all);
@@ -69,7 +69,7 @@ function SearchBar() {
 
   const customFormatOptionLabel = (products: any) => (
     <Link
-      //@ts-ignore
+      //@ts-expect-error: Checked Used OK
       href={handleProductLink(
         products.character.name,
         products.name,
@@ -78,6 +78,7 @@ function SearchBar() {
       target="_blank"
     >
       <div className={cx("products")}>
+        {/* eslint-disable @next/next/no-img-element */}
         <img
           src={products.images[0].filePath}
           alt={products.name}

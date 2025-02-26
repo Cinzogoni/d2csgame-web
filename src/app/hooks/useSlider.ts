@@ -34,29 +34,32 @@ const useSlider = (
     if (width >= 430 && width < 630) return mo;
     if (width < 430) return mi;
     return 1;
-  }, [width]);
+  }, [width, l, ml, m, sm, s, mo, mi]);
 
-  const handleSlide = (slide: SlideDirection): void => {
-    const totalBoxes = initialArray.length;
-    const boxesPerSlide = calculateBoxesPerSlide();
-    const maxSlideIndex = totalBoxes - boxesPerSlide;
+  const handleSlide = useCallback(
+    (slide: SlideDirection): void => {
+      const totalBoxes = initialArray.length;
+      const boxesPerSlide = calculateBoxesPerSlide();
+      const maxSlideIndex = totalBoxes - boxesPerSlide;
 
-    setSlideIndex((prevIndex) => {
-      if (slide === "next") {
-        if (prevIndex === maxSlideIndex) return 0;
-        return prevIndex + 1;
-      }
-      if (slide === "prev") {
-        if (prevIndex === 0) return maxSlideIndex;
-        return prevIndex - 1;
-      }
-      return prevIndex;
-    });
-    setActiveSlide(slide);
-    setTimeout(() => {
-      setActiveSlide(null);
-    }, 100);
-  };
+      setSlideIndex((prevIndex) => {
+        if (slide === "next") {
+          if (prevIndex === maxSlideIndex) return 0;
+          return prevIndex + 1;
+        }
+        if (slide === "prev") {
+          if (prevIndex === 0) return maxSlideIndex;
+          return prevIndex - 1;
+        }
+        return prevIndex;
+      });
+      setActiveSlide(slide);
+      setTimeout(() => {
+        setActiveSlide(null);
+      }, 100);
+    },
+    [calculateBoxesPerSlide, initialArray.length]
+  );
 
   const transformSlideValue = (): string => {
     const boxesPerSlide = calculateBoxesPerSlide();
@@ -70,7 +73,7 @@ const useSlider = (
     }, time);
 
     return () => clearInterval(intervalId);
-  }, [slideIndex]);
+  }, [handleSlide, time]);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
