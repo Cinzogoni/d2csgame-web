@@ -11,7 +11,7 @@ import GridSystem from "../GridSystem/GridSystem";
 
 import { Link, isNavigate } from "src/i18n/routing";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -71,8 +71,8 @@ function Categories() {
     (category) => category.id === selectedId
   );
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
-  const categories = apiHomePageResources.categories
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const categories = apiFakeHomePageResources.categories
     .map((category) => category)
     .filter((type) => type.productType === currentCategory?.productType);
 

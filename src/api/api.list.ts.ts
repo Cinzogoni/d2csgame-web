@@ -7,7 +7,7 @@ import { RootState } from "../app/redux-toolkit/store";
 import {
   fetchHomePageResources,
   fetchSearchResult,
-  fetchHeroCategories,
+  fetchCharacters,
   fetchProductCategories,
 } from "src/app/redux-toolkit/apiWebResources";
 
@@ -20,8 +20,10 @@ export const useFetchApiProductResources = () => {
   const dataSearchResult = useSelector(
     (state: RootState) => state.apiResources.isApiSearchResult
   );
-  const dataHeroCategories = useSelector(
-    (state: RootState) => state.apiResources.isApiHeroCategories
+
+  //THIS DATA IS FIXING
+  const dataCharacters = useSelector(
+    (state: RootState) => state.apiResources.isApiCharacters
   );
   const dataProductCategories = useSelector(
     (state: RootState) => state.apiResources.isApiProductCategories
@@ -38,14 +40,14 @@ export const useFetchApiProductResources = () => {
   useEffect(() => {
     dispatch(fetchHomePageResources());
     dispatch(fetchSearchResult());
-    dispatch(fetchHeroCategories());
+    dispatch(fetchCharacters());
     dispatch(fetchProductCategories());
   }, [dispatch]);
 
   return {
     dataHomePageResources,
     dataSearchResult,
-    dataHeroCategories,
+    dataCharacters,
     dataProductCategories,
     dataProductLoading,
     dataProductError,

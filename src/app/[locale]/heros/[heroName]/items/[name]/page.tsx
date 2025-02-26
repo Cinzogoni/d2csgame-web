@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -17,8 +17,8 @@ function HeroItem() {
   const productNameString =
     typeof name === "string" ? decodeURIComponent(name) : "";
 
-  // lam_dev thay apiHomePageResources === dataHomePageResources
-  const heroItem = apiHomePageResources.items
+  // lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const heroItem = apiFakeHomePageResources.items
     .map((item) => item)
     .find(
       (hero) =>
@@ -26,7 +26,7 @@ function HeroItem() {
         hero.name === productNameString
     );
 
-  const anotherItem = apiHomePageResources.items
+  const anotherItem = apiFakeHomePageResources.items
     .map((item) => item)
     .filter(
       (hero) =>

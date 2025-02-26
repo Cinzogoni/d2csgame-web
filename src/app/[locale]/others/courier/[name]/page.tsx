@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -13,12 +13,12 @@ function Courier() {
 
   const courierName = typeof name === "string" ? decodeURIComponent(name) : "";
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
-  const courier = apiHomePageResources.categories
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const courier = apiFakeHomePageResources.categories
     .map((category) => category)
     .find((music) => music.name === courierName);
 
-  const anotherCourier = apiHomePageResources.categories
+  const anotherCourier = apiFakeHomePageResources.categories
     .map((category) => category)
     .filter(
       (music) => music.name !== courierName && music.productType === "COURIER"

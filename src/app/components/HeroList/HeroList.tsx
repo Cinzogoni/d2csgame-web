@@ -11,9 +11,13 @@ import Select from "react-select";
 import GridSystem from "../GridSystem/GridSystem";
 import { Link, isNavigate } from "src/i18n/routing";
 
-import apiHeroCategories from "src/api/fakeApi/apiHeroCategories";
+import apiFakeCharacters from "src/api/fakeApi/apiFakeCharacters";
+
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function HeroList() {
+  //THIS DATA IS FIXING
+  // const { dataCharacters } = useFetchApiProductResources();
   const t = useTranslations("Heros");
   const [isClient, setIsClient] = useState<boolean>(false);
   const [selectedHero, setSelectedHero] = useState<any | null>(null);
@@ -22,9 +26,10 @@ function HeroList() {
 
   const debouncedSearchInput = useDebounce(searchInput, 250);
 
+  //lam_dev thay apiFakeCharacters === dataCharacters
   const heros = Array.from(
     new Map(
-      apiHeroCategories.heros.map((hero) => [hero.character.name, hero])
+      apiFakeCharacters.heros.map((hero) => [hero.character.name, hero])
     ).values()
   );
 

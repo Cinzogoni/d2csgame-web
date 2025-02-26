@@ -17,10 +17,13 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import { Link, isNavigate } from "src/i18n/routing";
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
+
+// import { useFetchApiProductResources } from "src/api/api.list.ts";
 
 function NewRevival() {
   const t = useTranslations("Primary");
+  // const {dataHomePageResources} = useFetchApiProductResources();
 
   const [swiperInstance, setSwiperInstance] = useState<any>(null);
   const [isPrevClicked, setIsPrevClicked] = useState<boolean>(false);
@@ -30,7 +33,8 @@ function NewRevival() {
   const nextRef = useRef<HTMLDivElement>(null);
   const swiperRef = useRef<HTMLElement | null>(null);
 
-  const newUpdated = apiHomePageResources.newRevival.map(
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const newUpdated = apiFakeHomePageResources.newRevival.map(
     (newUpdate) => newUpdate
   );
 

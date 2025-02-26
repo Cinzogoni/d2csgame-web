@@ -1,4 +1,4 @@
-const apiHomePageResources = {
+const apiFakeHomePageResources = {
   newRevival: [
     {
       id: "tempestHelmOfTheThundergod",
@@ -2481,4 +2481,4 @@ const apiHomePageResources = {
   ],
 };
 
-export default apiHomePageResources;
+export default apiFakeHomePageResources;

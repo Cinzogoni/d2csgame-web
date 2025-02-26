@@ -13,7 +13,7 @@ import { useTranslations } from "next-intl";
 import { Link, useRouter } from "src/i18n/routing";
 import { useLocale } from "next-intl";
 
-import apiUser from "src/api/fakeApi/apiUser";
+import apiFakeUsers from "src/api/fakeApi/apiFakeUser";
 import { loginSuccess } from "src/app/redux-toolkit/apiUsersResources";
 import { useDispatch } from "react-redux";
 
@@ -37,8 +37,8 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
   // const [isSignUpPasswordVisible, setIsSignUpPasswordVisible] = useState(false);
   // const [isSignUpLoading, setIsSignUpLoading] = useState(false);
 
-  const isLoginEmail = apiUser.USER_001.map((e) => e.email);
-  const isLoginPassword = apiUser.USER_001.map((e) => e.password);
+  const isLoginEmail = apiFakeUsers.USER_001.map((e) => e.email);
+  const isLoginPassword = apiFakeUsers.USER_001.map((e) => e.password);
   const dispatch = useDispatch();
 
   const router = useRouter();
@@ -56,8 +56,8 @@ function AuthForm({ formType, setFormType }: AuthFormType) {
       setIsLoginLoading(true);
 
       try {
-        //lam_dev Thay apiUser bằng apiUsers
-        const findUser = apiUser.USER_001.find(
+        //lam_dev Thay apiFakeUsers bằng apiUsers
+        const findUser = apiFakeUsers.USER_001.find(
           (u) => u.email === emailLogin && u.password === passwordLogin
         );
         if (findUser) {

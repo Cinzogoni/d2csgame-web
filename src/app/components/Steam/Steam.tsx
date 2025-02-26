@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import useScroll from "src/app/hooks/useScroll";
 import GridSystem from "../GridSystem/GridSystem";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -23,8 +23,8 @@ function Steam() {
   const [windowWidth, setWindowWidth] = useState(0);
   // const { dataHomePageResources } = useFetchApiProductResources();
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
-  const steam = apiHomePageResources.steam.map((allSteam) => allSteam);
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const steam = apiFakeHomePageResources.steam.map((allSteam) => allSteam);
 
   useEffect(() => {
     if (typeof window !== "undefined") {

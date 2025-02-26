@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -14,12 +14,12 @@ function SteamPoint() {
   const steamPointName =
     typeof name === "string" ? decodeURIComponent(name) : "";
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
-  const steamPoint = apiHomePageResources.steam
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const steamPoint = apiFakeHomePageResources.steam
     .map((steam) => steam)
     .find((point) => point.name === steamPointName);
 
-  const anotherSteamPoint = apiHomePageResources.steam
+  const anotherSteamPoint = apiFakeHomePageResources.steam
     .map((steam) => steam)
     .filter(
       (point) =>

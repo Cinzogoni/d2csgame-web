@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -17,12 +17,12 @@ function NewRevivalCategories() {
   const productNameString =
     typeof name === "string" ? decodeURIComponent(name) : "";
 
-  // lam_dev thay apiHomePageResources === dataHomePageResources
-  const newRevival = apiHomePageResources.newRevival
+  // lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const newRevival = apiFakeHomePageResources.newRevival
     .map((newUpdated) => newUpdated)
     .find((isNew) => isNew.name === productNameString);
 
-  const anotherNewRevival = apiHomePageResources.newRevival
+  const anotherNewRevival = apiFakeHomePageResources.newRevival
     .map((newUpdated) => newUpdated)
     .filter(
       (isNew) =>

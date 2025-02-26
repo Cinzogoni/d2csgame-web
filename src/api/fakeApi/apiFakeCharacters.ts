@@ -1,4 +1,4 @@
-const apiHeroCategories = {
+const apiFakeCharacters = {
   heros: [
     {
       id: "curCryKer",
@@ -723,4 +723,4 @@ const apiHeroCategories = {
   ],
 };
 
-export default apiHeroCategories;
+export default apiFakeCharacters;

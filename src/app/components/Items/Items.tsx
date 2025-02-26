@@ -14,7 +14,7 @@ import useSlider from "src/app/hooks/useSlider";
 import useScroll from "src/app/hooks/useScroll";
 import GridSystem from "../GridSystem/GridSystem";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -24,9 +24,9 @@ function Items() {
   const [windowWidth, setWindowWidth] = useState(0);
   // const { dataHomePageResources } = useFetchApiProductResources();
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
 
-  const items = apiHomePageResources.items.map((item) => item);
+  const items = apiFakeHomePageResources.items.map((item) => item);
   const outstandingItems = items.filter((item) => item.rate === true);
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import { createAsyncThunk, createReducer } from "@reduxjs/toolkit";
 import {
   apiHomePageResources,
   apiSearchResult,
-  apiHeroCategories,
+  apiCharacters,
   apiProductCategories,
 } from "src/app/services/ProductService";
 
@@ -18,9 +18,9 @@ export const fetchSearchResult = createAsyncThunk(
   apiSearchResult
 );
 
-export const fetchHeroCategories = createAsyncThunk(
-  "api/fetchHeroCategories",
-  apiHeroCategories
+export const fetchCharacters = createAsyncThunk(
+  "api/fetchCharacters",
+  apiCharacters
 );
 
 export const fetchProductCategories = createAsyncThunk(
@@ -31,7 +31,7 @@ export const fetchProductCategories = createAsyncThunk(
 interface ApiState {
   isApiHomePageResources: ProductCategories[];
   isApiSearchResult: ProductCategories[];
-  isApiHeroCategories: ProductCategories[];
+  isApiCharacters: ProductCategories[];
   isApiProductCategories: ProductCategories[];
   apiLoading: boolean;
   apiError: string | null;
@@ -40,7 +40,7 @@ interface ApiState {
 const initialState: ApiState = {
   isApiHomePageResources: [],
   isApiSearchResult: [],
-  isApiHeroCategories: [],
+  isApiCharacters: [],
   isApiProductCategories: [],
   apiLoading: false,
   apiError: null,
@@ -55,7 +55,7 @@ const apiWebResources = createReducer(initialState, (builder) => {
     .addCase(fetchSearchResult.pending, (state) => {
       state.apiLoading = true;
     })
-    .addCase(fetchHeroCategories.pending, (state) => {
+    .addCase(fetchCharacters.pending, (state) => {
       state.apiLoading = true;
     })
     .addCase(fetchProductCategories.pending, (state) => {
@@ -71,9 +71,9 @@ const apiWebResources = createReducer(initialState, (builder) => {
       state.apiLoading = false;
       state.isApiSearchResult = action.payload;
     })
-    .addCase(fetchHeroCategories.fulfilled, (state, action) => {
+    .addCase(fetchCharacters.fulfilled, (state, action) => {
       state.apiLoading = false;
-      state.isApiHeroCategories = action.payload;
+      state.isApiCharacters = action.payload;
     })
     .addCase(fetchProductCategories.fulfilled, (state, action) => {
       state.apiLoading = false;
@@ -90,7 +90,7 @@ const apiWebResources = createReducer(initialState, (builder) => {
       state.apiLoading = false;
       state.apiError = action.error.message || "Failed to fetch search result";
     })
-    .addCase(fetchHeroCategories.rejected, (state, action) => {
+    .addCase(fetchCharacters.rejected, (state, action) => {
       state.apiLoading = false;
       state.apiError =
         action.error.message || "Failed to fetch hero categories";

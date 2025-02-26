@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -13,12 +13,12 @@ function Terrain() {
 
   const terrainName = typeof name === "string" ? decodeURIComponent(name) : "";
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
-  const terrain = apiHomePageResources.categories
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const terrain = apiFakeHomePageResources.categories
     .map((category) => category)
     .find((terrain) => terrain.name === terrainName);
 
-  const anotherTerrain = apiHomePageResources.categories
+  const anotherTerrain = apiFakeHomePageResources.categories
     .map((category) => category)
     .filter(
       (terrain) =>

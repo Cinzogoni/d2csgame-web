@@ -1,4 +1,4 @@
-const apiUser = {
+const apiFakeUsers = {
   USER_001: [
     {
       userName: "user001",
@@ -9,4 +9,4 @@ const apiUser = {
   ],
 };
 
-export default apiUser;
+export default apiFakeUsers;

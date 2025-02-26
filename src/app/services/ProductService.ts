@@ -16,11 +16,11 @@ const apiSearchResult = async (): Promise<ProductCategories[]> => {
   return data;
 };
 
-//
-const REST_API_HERO_CATEGORIES_URL = `http://localhost:8080/api/heros`;
-const apiHeroCategories = async (): Promise<ProductCategories[]> => {
+//THIS DATA IS FIXING
+const REST_API_CHARACTERS_URL = `http://103.28.33.98:8080/api/v1/character`;
+const apiCharacters = async (): Promise<ProductCategories[]> => {
   const response = await axios.get<ProductCategories[]>(
-    REST_API_HERO_CATEGORIES_URL
+    REST_API_CHARACTERS_URL
   );
   const data = response.data;
   return data;
@@ -45,7 +45,7 @@ const apiUsers = async (): Promise<User[]> => {
 export {
   apiHomePageResources,
   apiSearchResult,
-  apiHeroCategories,
+  apiCharacters,
   apiProductCategories,
   apiUsers,
 };

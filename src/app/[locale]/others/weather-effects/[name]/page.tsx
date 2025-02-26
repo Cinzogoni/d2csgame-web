@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -14,12 +14,12 @@ function WeatherEffects() {
   const weatherEffectName =
     typeof name === "string" ? decodeURIComponent(name) : "";
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
-  const weatherEffects = apiHomePageResources.categories
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const weatherEffects = apiFakeHomePageResources.categories
     .map((category) => category)
     .find((weather) => weather.name === weatherEffectName);
 
-  const anotherWeatherEffects = apiHomePageResources.categories
+  const anotherWeatherEffects = apiFakeHomePageResources.categories
     .map((category) => category)
     .filter(
       (weather) =>

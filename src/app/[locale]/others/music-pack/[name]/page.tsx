@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import ProductTemplate from "src/app/components/ProductTemplate/ProductTemplate";
 
-import apiHomePageResources from "src/api/fakeApi/apiHomePageResources";
+import apiFakeHomePageResources from "src/api/fakeApi/apiFakeHomePageResources";
 
 // import { useFetchApiProductResources } from "src/api/api.list.ts";
 
@@ -14,12 +14,12 @@ function MusicPack() {
   const musicPackName =
     typeof name === "string" ? decodeURIComponent(name) : "";
 
-  //lam_dev thay apiHomePageResources === dataHomePageResources
-  const musicPack = apiHomePageResources.categories
+  //lam_dev thay apiFakeHomePageResources === dataHomePageResources
+  const musicPack = apiFakeHomePageResources.categories
     .map((category) => category)
     .find((music) => music.name === musicPackName);
 
-  const anotherMusicPack = apiHomePageResources.categories
+  const anotherMusicPack = apiFakeHomePageResources.categories
     .map((category) => category)
     .filter(
       (music) =>
